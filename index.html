@@ -12,8 +12,16 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
-    <script type="module" crossorigin src="/GXJT/assets/index-C4ujLlf2.js"></script>
-    <link rel="stylesheet" crossorigin href="/GXJT/assets/index-DeV9Pujw.css">
+    <script type="module">
+      const showDesignSpec = new URLSearchParams(window.location.search).get('view') === 'design-system';
+      const bundle = showDesignSpec ? 'index-D4B6dXSC.js' : 'index-C4ujLlf2.js';
+      const stylesheet = document.createElement('link');
+      stylesheet.rel = 'stylesheet';
+      stylesheet.crossOrigin = 'anonymous';
+      stylesheet.href = showDesignSpec ? '/GXJT/assets/index-CECJ0RNs.css' : '/GXJT/assets/index-DeV9Pujw.css';
+      document.head.append(stylesheet);
+      import('/GXJT/assets/' + bundle);
+    </script>
   </head>
   <body>
     <div id="root"></div>
